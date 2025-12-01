@@ -154,8 +154,7 @@ export default function Home() {
           <p>2024</p>
           <p>Design, Development</p>
           <p className="md:col-span-2">
-            Website for Zeug, an artist management and image strategy agency
-            based in Paris.
+            Website for Zeug, an artist management agency based in Paris.
           </p>
         </GridRow>
 
