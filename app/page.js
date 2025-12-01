@@ -112,7 +112,7 @@ export default function Home() {
       <Section title="Selected works">
         <TableHeader cols={["Title", "Year", "Services", "Details"]} />
 
-        <GridRow href="https://www.figma.com/proto/0K1SxYey6CsyRFQggRS1mC/Antiprocess-2024?page-id=1991%3A1998&node-id=1991-2016&t=uoT29Snu02X2y2vK-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1991%3A2016&hide-ui=1">
+        <GridRow href="">
           <p>Antiprocess (WIP)</p>
           <p>2025</p>
           <p>Design, Development</p>
@@ -270,6 +270,15 @@ export default function Home() {
           label="Hobbies"
           items={["DJing,", "Music production,", "Photography,", "Cooking"]}
         />
+        <div className="md:col-span-2 order-first md:order-last">
+          <p className="opacity-30">Certifications</p>
+          <div>
+            <p>
+              ECV Paris Master’s degree (M2) in Visual Design Art Direction,
+            </p>
+            <p>Rhino 3D Design and development of parametric 3D parts</p>
+          </div>
+        </div>
       </Section>
     </main>
   )
