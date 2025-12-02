@@ -124,9 +124,9 @@ export default function Home() {
               that moves fluidly between visual direction, interface thinking,
               and technical execution. This hybrid background lets me bridge
               teams and disciplines, and gives me the freedom to take a project
-              from concept to production with the same level of precision and
-              intent. Based in Marseille, France I'm happy to work localy but
-              also remotely. Next availability: {getNextMonthAvailability()}.
+              from concept to production with the same level of intent. Based in
+              Marseille, France I'm happy to work localy but also remotely. Next
+              availability: {getNextMonthAvailability()}.
             </p>
             <a href="mailto:antoine.venco@gmail.com" className="underline">
               antoine.venco
