@@ -6,12 +6,12 @@ const monaSans = localFont({
   variable: "--font-mona-sans",
   display: "swap",
   weight: "200 900",
-});
+})
 
 export const metadata = {
-  title: "Antoine Venco - Portfolio",
-  description: "Portfolio and CV of Antoine Venco - Graphic Designer & Developer",
-};
+  title: "Antoine Venco",
+  description: "Graphic Designer & Developer based in Marseille, France",
+}
 
 export default function RootLayout({ children }) {
   return (
