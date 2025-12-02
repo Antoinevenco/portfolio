@@ -17,7 +17,9 @@ const Row = ({ title, col2, col3, details, href }) => (
     </p>
     <p>{col2}</p>
     <p>{col3}</p>
-    <p className="md:col-span-3 lg:col-span-2">{details}</p>
+    <p className="md:col-span-3 lg:col-span-2 text-balance md:text-wrap">
+      {details}
+    </p>
   </GridRow>
 )
 
@@ -76,7 +78,7 @@ export default function Home() {
   }
 
   return (
-    <main className="p-4 min-h-screen flex flex-col gap-8 md:gap-16">
+    <main className="p-4 min-h-screen flex flex-col gap-10 md:gap-16">
       {/* Header */}
       <Section title="Antoine Venco">
         <Column
@@ -114,7 +116,7 @@ export default function Home() {
             "Three.js",
           ]}
         />
-        <div className="md:col-span-2 order-first md:order-last">
+        <div className="md:col-span-3 lg:col-span-2 order-first md:order-last">
           <p className="opacity-30">About</p>
           <div>
             <p>
@@ -258,7 +260,7 @@ export default function Home() {
           title="Adyax"
           col2="2018-2019"
           col3="Assistant AD"
-          details="Interface design, Graphic adaptations, Motion design"
+          details="Interface design, Graphic adaptations, Motion"
         />
       </Section>
 
@@ -280,7 +282,7 @@ export default function Home() {
           label="Hobbies"
           items={["DJing,", "Music production,", "Photography,", "Cooking"]}
         />
-        <div className="md:col-span-2 order-first md:order-last">
+        <div className="md:col-span-3 lg:col-span-2 order-first md:order-last">
           <p className="opacity-30">Certifications</p>
           <div>
             <p>
