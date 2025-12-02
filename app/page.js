@@ -40,7 +40,7 @@ const GridRow = ({ children, href }) => {
         href,
         target: "_blank",
         rel: "noopener noreferrer",
-        className: `${classes} md:hover:opacity-50`,
+        className: `${classes} md:hover:opacity-30`,
       }
     : { className: classes }
 
@@ -66,20 +66,19 @@ const Section = ({ title, children }) => {
 }
 
 export default function Home() {
+  // Calculate next month dynamically
+  const getNextMonthAvailability = () => {
+    const now = new Date()
+    const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1)
+    const month = nextMonth.toLocaleString("en-US", { month: "long" })
+    const year = nextMonth.getFullYear()
+    return `${month} ${year}`
+  }
+
   return (
     <main className="p-4 min-h-screen flex flex-col gap-8 md:gap-16">
       {/* Header */}
-      <Section
-        title={[
-          "Antoine Venco",
-          "Marseille, France.",
-          <a href="mailto:antoine.venco@gmail.com" className="underline">
-            antoine.venco
-            <wbr />
-            @gmail.com
-          </a>,
-        ]}
-      >
+      <Section title="Antoine Venco">
         <Column
           label="Design skills"
           items={[
@@ -99,7 +98,8 @@ export default function Home() {
             "Back-end,",
             "Headless CMS,",
             "E-commerce,",
-            "Creative Coding",
+            "Creative Coding,",
+            "Open-source",
           ]}
         />
         <Column
@@ -108,11 +108,10 @@ export default function Home() {
             "React,",
             "Next.js,",
             "Sanity,",
-            "Tailwind,",
+            "Shopify,",
             "Webflow,",
             "Wordpress,",
-            "Three.js,",
-            "Medusa.js",
+            "Three.js",
           ]}
         />
         <div className="md:col-span-2 order-first md:order-last">
@@ -126,8 +125,15 @@ export default function Home() {
               and technical execution. This hybrid background lets me bridge
               teams and disciplines, and gives me the freedom to take a project
               from concept to production with the same level of precision and
-              intent.
+              intent. Based in Marseille, France I'm happy to work localy but
+              also remotely. Next availability: {getNextMonthAvailability()}.
             </p>
+            <a href="mailto:antoine.venco@gmail.com" className="underline">
+              antoine.venco
+              <wbr />
+              @gmail.com
+            </a>
+            ,
           </div>
         </div>
       </Section>
