@@ -144,13 +144,13 @@ export default function Home() {
       <Section title="Selected works">
         <TableHeader cols={["Title", "Year", "Services", "Details"]} />
 
-        <Row
+        {/* <Row
           title="Antiprocess (WIP)"
           col2="2025"
           col3="Design, Development"
           details="Branding and Website for Antiprocess: A jewelry brand I co-founded."
           href=""
-        />
+        /> */}
 
         <Row
           title="Errance"
@@ -197,7 +197,7 @@ export default function Home() {
           col2="2023"
           col3="Design, Development"
           details="Website for CasaB, a villa in Minorque."
-          href="https://casab-real-estate.webflow.io/en"
+          href="https://casab-real-estate.webflow.io/"
         />
 
         <Row
@@ -208,13 +208,13 @@ export default function Home() {
           href="https://510paris.netlify.app/"
         />
 
-        <Row
+        {/* <Row
           title="Arch"
           col2="2020"
           col3="Design, Development"
           details="Website for Arch, A sustainable building in Brussels."
           href="https://www.the-arch.be/"
-        />
+        /> */}
       </Section>
 
       {/* Experience */}
