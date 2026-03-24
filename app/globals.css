@@ -1,16 +1,38 @@
 @import "tailwindcss";
 
+/* ─── Tokens — edit here to retheme ─────────────────────────── */
 :root {
+  /* Portfolio */
   --background: #eeeeee;
-  --foreground: #000000;
+  --foreground: #000;
+
+  /* Proposal — semantic scale */
+  --ink: #111; /* primary foreground, active bg   */
+  --ink-soft: #333; /* hover on dark elements          */
+  --line: #bbb; /* all borders                     */
+  --muted: #888; /* secondary text                  */
+  --subtle: #666; /* tertiary / selected labels      */
+  --faint: #9f9f9f; /* size S, lightest labels         */
+  --surface: #dadada; /* hover backgrounds               */
 }
 
 @theme inline {
+  /* Portfolio */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-mona-sans);
+
+  /* Proposal — generates text-*, bg-*, border-* utilities */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-faint: var(--faint);
+  --color-surface: var(--surface);
 }
 
+/* ─── Base ───────────────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -23,11 +45,56 @@ body {
   letter-spacing: -0.02em;
 }
 
-p {
-  margin: 0;
+/* ─── Proposal typography scale ─────────────────────────────── */
+/* Used by /proposal/* routes only */
+
+.text-display {
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-/* a {
-  color: inherit;
-  text-decoration: inherit;
-} */
+.text-small {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+/* ─── Proposal print ─────────────────────────────────────────── */
+body.print-page [data-chrome] {
+  display: none;
+}
+
+body.print-page main {
+  padding: 0;
+  border: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 20mm;
+  }
+
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  [data-chrome],
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .print-section {
+    break-after: page;
+  }
+
+  .print-section:last-child {
+    break-after: auto;
+  }
+}
