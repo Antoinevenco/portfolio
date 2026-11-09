@@ -36,7 +36,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-mona-sans), -apple-system, BlinkMacSystemFont,
+  font-family:
+    var(--font-mona-sans),
+    -apple-system,
+    BlinkMacSystemFont,
     sans-serif;
   font-size: 16px;
   line-height: 1;
@@ -97,4 +100,113 @@ body.print-page main {
   .print-section:last-child {
     break-after: auto;
   }
+}
+
+/* Static (non-variable) Mona Sans instance for the CV: Chrome embeds the
+   variable font in a way that breaks PDF text extraction (ATS). */
+@font-face {
+  font-family: "Mona Sans CV";
+  src: url("/fonts/MonaSans-CV.woff") format("woff");
+  font-weight: 400 500;
+  font-display: block;
+}
+
+/* ─── CV (/cv, /cv/fr) ───────────────────────────────────────── */
+/* Fixed A4 sheet; uses a named @page so it prints edge-to-edge
+   without affecting the proposal's page margins. */
+
+.cv-wrapper {
+  min-height: 100vh;
+  padding: 16px;
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.cv-controls {
+  width: 210mm;
+  margin: 0 auto 16px;
+}
+
+.cv-sheet {
+  page: cv;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  padding: 9mm;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+@media print {
+  @page cv {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: var(--background);
+  }
+
+  .cv-wrapper {
+    min-height: 0;
+    padding: 0;
+    background: none;
+    overflow: visible;
+  }
+
+  .cv-sheet {
+    margin: 0;
+  }
+}
+
+.cv-sheet h1,
+.cv-sheet h2,
+.cv-sheet h3 {
+  font: inherit;
+}
+
+/* Colour, not opacity — keeps PDF text in reading order for ATS */
+.cv-muted {
+  color: #8a8a8a;
+}
+
+.cv-sheet {
+  /* plain glyphs only, so extracted text matches what is shown */
+  font-variant-ligatures: none;
+  font-kerning: none;
+  letter-spacing: 0;
+  word-spacing: 0.05em;
+  font-family: "Mona Sans CV", Arial, sans-serif;
+}
+
+.cv-sheet a {
+  text-decoration: none;
+}
+
+.cv-name {
+  font-size: 26px !important;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.cv-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cv-heading {
+  border-top: 1px solid var(--line);
+  padding-top: 5px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.cv-entry + .cv-entry {
+  margin-top: 5px;
 }
